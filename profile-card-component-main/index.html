@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Profile card component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    body{
+      font-family: 'Kumbh Sans',sans-serif;
+      font-size: 18px;
+      color: hsl(0, 0%, 59%);
+      background-image: repeating-radial-gradient( hsl(185, 75%, 39%), hsl(189, 95%, 22%));
+    }
+    .main{
+      border: 1px solid #0aa2aae0;
+    text-align: center;
+    width: 376px;
+    height: 394px;
+    margin: auto;
+    margin-top: 10rem;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.3));
+}
+    img{
+      border-radius: 55px;
+    border: 5px solid #fffefe;
+    margin-top: -55px;
+    }
+    .head{
+      background-color: #229fb7;
+    height: 140px;
+    border-top-right-radius: inherit;
+    border-top-left-radius: inherit;
+    }
+    .bottom{
+      margin-top: 28px;
+    display: flex;
+    text-align: center;
+    border-top: 1px solid #8080806e;
+    padding: 6px;
+    }
+    .element{
+      margin-left: 50px;
+    }
+    .mark{
+      font-style: initial;
+    font-weight: 700;
+    color: black;
+    }
+    .small{
+      font-size: small;
+    }
+    .disp{
+      background-color: white;
+    height: 255px;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    }
+    .attribution { font-size: 11px; text-align: center; margin-top: 50px;}
+    .attribution a { color: hsl(0, 48%, 41%); }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="head"></div>
+    <div class="disp">
+      <img src="images/image-victor.jpg">
+      <p><em class="mark">Victor Crest</em> 26</p>
+      <p style="font-size: small; margin-bottom: 33px;">London</p>
+      <div class="bottom">
+        <div class="element">
+          <p><em class="mark">80K</em></p>
+          <p class="small">Followers</p>
+        </div>  
+        <div class="element">
+          <p class="mark">803K</p>
+          <p class="small">Likes</p>
+        </div>
+        <div class="element">
+          <p class="mark">1.4K</p>
+          <p class="small">Photos</p>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Prudhvi</a>.
+  </div>
+</body>
+</html>
