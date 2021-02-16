@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Intro component with sign up form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    body{
+      background-image: url('./images/bg-intro-desktop.png');
+      background-color: hsl(0, 100%, 74%);
+      font-family: 'Poppins',sans-serif;
+    }
+    .inp{
+      padding:25px;
+      font-size: 15px;
+    font-weight: 600;
+    }
+    .inpalt{
+      padding:25px;
+      font-size: 15px;
+      font-weight: 600;
+      border: 1px solid red;
+      }
+    .main{
+      width: 32rem;
+      margin-left: 53%;
+      margin-top: -20rem;
+      box-shadow: 0px 6px #5f585878;
+      border-radius: 10px;
+      font-size: 13px;
+    }
+    .sub{
+      width: 32rem;
+    background-color: hsl(248, 32%, 49%);
+    color: #dae0e5;
+    padding: 16px;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 53%;
+    margin-top: 8%;
+    box-shadow: 0px 6px #5f585878;
+    }
+    .err{    
+    text-align: end;
+    font-size: 11px;
+    color: #ff0000d1;
+    line-height: 25px;
+    font-style: italic;}
+    .attribution { font-size: 11px; text-align: center; margin-top: 60px;}
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <script>
+    function insertAfter(referenceNode, newNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+    function ValidateEmail(mail) {
+    if (/^[a-zA-Z0-9.#$_~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail))
+      {
+        return true
+      }
+        return false
+    }
+
+    const check = () =>{
+      document.getElementsByTagName("form")[0].onsubmit = function() {return false;}
+      let firstname=document.getElementById('firstname').value;
+      let lastname=document.getElementById('lastname').value;
+      let email=document.getElementById('email').value;
+      let password=document.getElementById('Password').value;
+      console.log(document.getElementsByTagName('input'));
+      if(firstname && lastname && email && password){
+        if(ValidateEmail(email)){
+          let sample=document.getElementsByTagName('input');
+          for (i = 0; i < sample.length; i++) {
+              sample[i].className="form-control inp";
+              document.getElementById(sample[i].id+'1').remove();
+            }
+          data={
+          "firstname":firstname,
+          "lastname":lastname,
+          "email":email,
+          "password":password
+          }
+        console.log(data);
+        }
+        else{
+              document.getElementById('email').className="form-control inpalt";
+              let temp=document.createElement('p');
+              temp.setAttribute("class","err");
+              temp.innerHTML="Doesn't look like an email";
+              insertAfter(document.getElementById('email'),temp);
+        }
+      }
+      else{
+        let sample=document.getElementsByTagName('input');
+        for (i = 0; i < sample.length; i++) {
+            if(sample[i].value === ""){
+              if(sample[i].className !== "form-control inpalt"){
+              sample[i].className="form-control inpalt";
+              let temp=document.createElement('p');
+              temp.setAttribute("class","err");
+              temp.setAttribute("id",sample[i].id+'1');
+              temp.innerHTML="Looks like the field is empty";
+              insertAfter(sample[i],temp);
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <div class="sub">
+    <text style="font-weight:600; color: white;">Try it for free 7 days</text> then $20/mo. thereafter
+  </div>
+  
+    <div style="width: 31rem; margin-left: 225px; color: azure; margin-top: 4rem;">
+      <p style="font-weight: 700;font-size :3rem;line-height: initial;">Learn to code by watching others</p>
+      <p style="margin-top: 40px;">See how experienced developers solve problems in real-time.Watching scripted tutorials is great, but understanding how developers think is inavaluable.</p>
+      <p style="margin-top: 40px;"></p>
+    </div>
+    <div class="card main">
+      <div class="card-body" style="padding: 2rem;text-align: center;">
+        <form id="form">
+          <div class="form-group">
+            <input type="text" class="form-control inp" id="firstname" placeholder="First name">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control inp" id="lastname" placeholder="Last name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control inp" id="email" placeholder="Email Address">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control inp" id="Password" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="check()" style="background-color: hsl(154, 59%, 51%); font-size: 14px; padding: 10px; margin-bottom: 10px;">CLAIM YOUR FREE TRIAL</button>
+          <small class="form-text text-muted">By CLicking you agree to our <text class="text-danger">Terms and Services.</text></small>
+        </form>
+      </div>  
+  
+  </div>  
+ 
+
+  
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer>
+</body>
+</html>
